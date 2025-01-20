@@ -7,11 +7,15 @@ module.exports = {
 	config: {
 		name: "customrankcard",
 		aliases: ["crc", "customrank"],
-		version: "1.12",
+		version: "1.11",
 		author: "NTKhang",
 		countDown: 5,
 		role: 0,
-		description: {
+		shortDescription: {
+			vi: "Thiết kế thẻ rank",
+			en: "Design rank card"
+		},
+		longDescription: {
 			vi: "Thiết kế thẻ rank theo ý bạn",
 			en: "Design rank card by your own"
 		},
@@ -41,7 +45,7 @@ module.exports = {
 					+ "\n    {pn} reset",
 				attachment: {
 					[`${__dirname}/assets/guide/customrankcard_1.jpg`]: "https://i.ibb.co/BZ2Qgs1/image.png",
-					[`${__dirname}/assets/guide/customrankcard_2.png`]: "https://i.ibb.co/wy1ZHHL/image.png"
+					[`${__dirname}/assets/guide/customrankcard_2.png`]: "https://i.ibb.co/wy1ZHHL/image.png i "
 				}
 			},
 			en: {
