@@ -1,7 +1,7 @@
 const axios = require("axios");
 const availableCmdsUrl = "https://raw.githubusercontent.com/Blankid018/D1PT0/main/availableCmds.json";
 const cmdUrlsJson = "https://raw.githubusercontent.com/Blankid018/D1PT0/main/cmdUrls.json";
-const ITEMS_PER_PAGE = 25;
+const ITEMS_PER_PAGE = 30;
 
 module.exports.config = {
   name: "cmds",
@@ -91,7 +91,7 @@ global.GoatBot.onReply.set(info.messageID, {
 module.exports.onReply = async function ({ api, event, Reply }) {
 
   if (Reply.author != event.senderID) {
-    return api.sendMessage("Who are you? 🐸", event.threadID, event.messageID);
+    return api.sendMessage("Who are you baby ? 🐸", event.threadID, event.messageID);
   }
   const reply = parseInt(event.body);
   const startIndex = (Reply.page - 1) * ITEMS_PER_PAGE;
@@ -117,7 +117,7 @@ const  { status }  = Reply.cmdName[reply - 1]
       );
     }
     api.unsendMessage(Reply.messageID);
-    const msg = `╭───────⭓\n│ STATUS :${status || null}\n│ Command Url: ${selectedCmdUrl}\n╰─────────────⭓`;
+    const msg = `😏╭───────⭓\n│ STATUS :${status || null}\n│ Command Url: ${selectedCmdUrl}\n╰─────────────⭓🤩`;
     api.sendMessage(msg, event.threadID, event.messageID);
   } catch (error) {
     api.sendMessage(
