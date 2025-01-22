@@ -1,4 +1,3 @@
-
 const axios = require("axios");
 
 const baseApiUrl = async () => {
@@ -9,7 +8,7 @@ const baseApiUrl = async () => {
 };
 
 module.exports.config = {
-    name: "qz",
+    name: "quiz",
     version: "1.0",
     author: "Mesbah Bb'e",
     countDown: 5,
