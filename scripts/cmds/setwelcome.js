@@ -4,11 +4,15 @@ module.exports = {
 	config: {
 		name: "setwelcome",
 		aliases: ["setwc"],
-		version: "1.7",
+		version: "1.5",
 		author: "NTKhang",
 		countDown: 5,
 		role: 1,
-		description: {
+		shortDescription: {
+			vi: "Chỉnh sửa nội dung tin nhắn chào mừng",
+			en: "Edit welcome message content"
+		},
+		longDescription: {
 			vi: "Chỉnh sửa nội dung tin nhắn chào mừng thành viên mới tham gia vào nhóm chat của bạn",
 			en: "Edit welcome message content when new member join your group chat"
 		},
@@ -152,14 +156,13 @@ async function saveChanges(message, event, threadID, senderID, threadsData, getL
 	if (!data.welcomeAttachment)
 		data.welcomeAttachment = [];
 
-	await Promise.all(attachments.map(async attachment => {
+	for (const attachment of attachments) {
 		const { url } = attachment;
 		const ext = getExtFromUrl(url);
 		const fileName = `${getTime()}.${ext}`;
 		const infoFile = await drive.uploadFile(`setwelcome_${threadID}_${senderID}_${fileName}`, await getStreamFromURL(url));
 		data.welcomeAttachment.push(infoFile.id);
-	}));
-
+	}
 	await threadsData.set(threadID, {
 		data
 	});
