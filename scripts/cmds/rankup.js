@@ -5,11 +5,15 @@ const { drive } = global.utils;
 module.exports = {
 	config: {
 		name: "rankup",
-		version: "1.4",
+		version: "1.2",
 		author: "NTKhang",
 		countDown: 5,
 		role: 0,
-		description: {
+		shortDescription: {
+			vi: "Bật/tắt thông báo level up",
+			en: "Turn on/off level up notification"
+		},
+		longDescription: {
 			vi: "Bật/tắt thông báo level up",
 			en: "Turn on/off level up notification"
 		},
@@ -33,7 +37,7 @@ module.exports = {
 			syntaxError: "Syntax error, only use {pn} on or {pn} off",
 			turnedOn: "Turned on level up notification",
 			turnedOff: "Turned off level up notification",
-			notiMessage: "🎉🎉 Congratulations on reaching level %1"
+			notiMessage: "🌊𝗖𝗢𝗡𝗚𝗥𝗔𝗧𝗨𝗟𝗔𝗧𝗜𝗢𝗡🌊reaching 𝗟𝘃𝗟✨ 「%1」"
 		}
 	},
 
@@ -52,50 +56,20 @@ module.exports = {
 		const { exp } = await usersData.get(event.senderID);
 		const currentLevel = expToLevel(exp);
 		if (currentLevel > expToLevel(exp - 1)) {
-			let customMessage = await threadsData.get(event.threadID, "data.rankup.message");
-			let isTag = false;
-			let userData;
-			const formMessage = {};
-
-			if (customMessage) {
-				userData = await usersData.get(event.senderID);
-				customMessage = customMessage
-					// .replace(/{userName}/g, userData.name)
-					.replace(/{oldRank}/g, currentLevel - 1)
-					.replace(/{currentRank}/g, currentLevel);
-				if (customMessage.includes("{userNameTag}")) {
-					isTag = true;
-					customMessage = customMessage.replace(/{userNameTag}/g, `@${userData.name}`);
-				}
-				else {
-					customMessage = customMessage.replace(/{userName}/g, userData.name);
-				}
-
-				formMessage.body = customMessage;
-			}
-			else {
-				formMessage.body = getLang("notiMessage", currentLevel);
-			}
-
+			const forMessage = {
+				body: getLang("notiMessage", currentLevel)
+			};
 			if (threadData.data.rankup?.attachments?.length > 0) {
 				const files = threadData.data.rankup.attachments;
 				const attachments = files.reduce((acc, file) => {
 					acc.push(drive.getFile(file, "stream"));
 					return acc;
 				}, []);
-				formMessage.attachment = (await Promise.allSettled(attachments))
+				forMessage.attachment = (await Promise.allSettled(attachments))
 					.filter(({ status }) => status == "fulfilled")
 					.map(({ value }) => value);
 			}
-
-			if (isTag) {
-				formMessage.mentions = [{
-					tag: `@${userData.name}`,
-					id: event.senderID
-				}];
-			}
-
-			message.reply(formMessage);
+			message.reply(forMessage);
 		}
 	}
 };

@@ -1,11 +1,15 @@
 module.exports = {
 	config: {
 		name: "setalias",
-		version: "1.8",
+		version: "1.7",
 		author: "NTKhang",
 		countDown: 5,
 		role: 0,
-		description: {
+		shortDescription: {
+			vi: "Thêm tên gọi khác cho lệnh",
+			en: "Add an alias for the command"
+		},
+		longDescription: {
 			vi: "Thêm tên gọi khác cho 1 lệnh bất kỳ trong nhóm của bạn",
 			en: "Add an alias for any command in your group"
 		},
