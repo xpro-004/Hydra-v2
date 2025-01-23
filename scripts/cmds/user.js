@@ -3,11 +3,15 @@ const { getTime } = global.utils;
 module.exports = {
 	config: {
 		name: "user",
-		version: "1.4",
+		version: "1.3",
 		author: "NTKhang",
 		countDown: 5,
 		role: 2,
-		description: {
+		shortDescription: {
+			vi: "Quản lý người dùng",
+			en: "Manage users"
+		},
+		longDescription: {
 			vi: "Quản lý người dùng trong hệ thống bot",
 			en: "Manage users in bot system"
 		},
