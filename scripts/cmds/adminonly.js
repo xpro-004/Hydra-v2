@@ -6,11 +6,15 @@ module.exports = {
 	config: {
 		name: "adminonly",
 		aliases: ["adonly", "onlyad", "onlyadmin"],
-		version: "1.5",
+		version: "1.3",
 		author: "NTKhang",
 		countDown: 5,
 		role: 2,
-		description: {
+		shortDescription: {
+			vi: "bật/tắt chỉ admin sử dụng bot",
+			en: "turn on/off only admin can use bot"
+		},
+		longDescription: {
 			vi: "bật/tắt chế độ chỉ admin mới có thể sử dụng bot",
 			en: "turn on/off only admin can use bot"
 		},
@@ -31,8 +35,8 @@ module.exports = {
 			turnedOffNoti: "Đã tắt thông báo khi người dùng không phải là admin sử dụng bot"
 		},
 		en: {
-			turnedOn: "Turned on the mode only admin can use bot",
-			turnedOff: "Turned off the mode only admin can use bot",
+			turnedOn: " 𝐀𝐞:\n 𝘔𝘰𝘥𝘦 🔱𝘙𝘰𝘪&𝘙𝘦𝘪𝘯𝘦🔱 ‪\nଘ( ੭⁰̷̴͈ ᵕ ˘͈)੭* ☆『 𝗔𝗰𝘁𝗶𝘃𝗲𝗿 』",
+			turnedOff: "𝐀𝐞:\nミ𝘔𝘰𝘥𝘦 👸𝗡𝗼𝗯𝗹𝗲🤴ミ\n/ᐠ - ˕ -マ \n✰︵『𝗗𝗲𝘀𝗮𝗰𝘁𝗶𝘃𝗲𝗿』 ",
 			turnedOnNoti: "Turned on the notification when user is not admin use bot",
 			turnedOffNoti: "Turned off the notification when user is not admin use bot"
 		}
@@ -56,7 +60,7 @@ module.exports = {
 			return message.SyntaxError();
 
 		if (isSetNoti) {
-			config.hideNotiMessage.adminOnly = !value;
+			config.adminOnly.hideNotiMessage = !value;
 			message.reply(getLang(value ? "turnedOnNoti" : "turnedOffNoti"));
 		}
 		else {
