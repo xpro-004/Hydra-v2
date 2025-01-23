@@ -3,11 +3,15 @@ const { removeHomeDir, log } = global.utils;
 module.exports = {
 	config: {
 		name: "eval",
-		version: "1.6",
+		version: "1.4",
 		author: "NTKhang",
 		countDown: 5,
 		role: 2,
-		description: {
+		shortDescription: {
+			vi: "Test code nhanh",
+			en: "Test code quickly"
+		},
+		longDescription: {
 			vi: "Test code nhanh",
 			en: "Test code quickly"
 		},
@@ -64,7 +68,7 @@ module.exports = {
 					"${getLang("error")}\\n" +
 					(err.stack ?
 						removeHomeDir(err.stack) :
-						removeHomeDir(JSON.stringify(err, null, 2) || "")
+						removeHomeDir(JSON.stringify(err, null, 2))
 					)
 				);
 			}

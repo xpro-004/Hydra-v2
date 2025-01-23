@@ -3,11 +3,15 @@ const moment = require("moment-timezone");
 module.exports = {
 	config: {
 		name: "daily",
-		version: "1.2",
+		version: "1.1",
 		author: "NTKhang",
 		countDown: 5,
 		role: 0,
-		description: {
+		shortDescription: {
+			vi: "Nhận quà hàng ngày",
+			en: "Receive daily gift"
+		},
+		longDescription: {
 			vi: "Nhận quà hàng ngày",
 			en: "Receive daily gift"
 		},

@@ -12,11 +12,15 @@ function getDomain(url) {
 module.exports = {
 	config: {
 		name: "event",
-		version: "1.9",
+		version: "1.8",
 		author: "NTKhang",
 		countDown: 5,
 		role: 2,
-		description: {
+		shortDescription: {
+			vi: "Quản lý command event",
+			en: "Manage event command"
+		},
+		longDescription: {
 			vi: "Quản lý các tệp lệnh event của bạn",
 			en: "Manage your event command files"
 		},
@@ -56,12 +60,12 @@ module.exports = {
 		},
 		en: {
 			missingFileName: "⚠️ | Please enter the command name you want to reload",
-			loaded: "✅ | Loaded event command \"%1\" successfully",
+			loaded: "✅ | 𝗟𝗢𝗔𝗗𝗘𝗗 \"『%1』\" (◍•ᴗ•◍)✧*。《",
 			loadedError: "❌ | Loaded event command \"%1\" failed with error\n%2: %3",
-			loadedSuccess: "✅ | Loaded \"%1\" event command successfully",
+			loadedSuccess: "✅ | 𝗟𝗢𝗔𝗗𝗘𝗗 \"『%1』\" 𝙴𝚟𝚎𝚗𝚝 𝙲𝚖𝚍 𝚂𝚞𝚌𝚌𝚎𝚜𝚜𝚏𝚞𝚕𝚕𝚢《",
 			loadedFail: "❌ | Loaded event command \"%1\" failed\n%2",
 			missingCommandNameUnload: "⚠️ | Please enter the command name you want to unload",
-			unloaded: "✅ | Unloaded event command \"%1\" successfully",
+			unloaded: "✅ | 𝗟𝗢𝗔𝗗𝗘𝗗 \"『%1』\" (◍•ᴗ•◍)《",
 			unloadedError: "❌ | Unloaded event command \"%1\" failed with error\n%2: %3",
 			missingUrlCodeOrFileName: "⚠️ | Please enter the url or code and command file name you want to install",
 			missingUrlOrCode: "⚠️ | Please enter the url or code of the command file you want to install",
@@ -72,7 +76,7 @@ module.exports = {
 			installedError: "❌ | Installed event command \"%1\" failed with error\n%2: %3",
 			missingFile: "⚠️ | File \"%1\" not found",
 			invalidFileName: "⚠️ | Invalid file name",
-			unloadedFile: "✅ | Unloaded command \"%1\""
+			unloadedFile: "✅ | 𝗨𝗡𝗟𝗢𝗔𝗗 𝙲𝚖𝚍 \"『%1』\""
 		}
 	},
 

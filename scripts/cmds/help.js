@@ -1,9 +1,9 @@
-const fs = require("fs-extra");
+.const fs = require("fs-extra");
 const axios = require("axios");
 const path = require("path");
 const { getPrefix } = global.utils;
 const { commands, aliases } = global.GoatBot;
-const doNotDelete = "💌🌊𝗔𝗘𝗦𝗧𝗛𝗘𝗥🌊💌";
+const doNotDelete = "💌🌊𝗔𝗘𝗦𝗧𝗛𝗘𝗥🌊";
 /** 
 * @author NTKhang
 * @author: do not delete it
@@ -279,4 +279,4 @@ function cropContent(content, max) {
     content = content + "...";
   }
   return content;
-	      }
+}
